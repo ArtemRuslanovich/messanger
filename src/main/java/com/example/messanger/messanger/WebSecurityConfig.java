@@ -21,10 +21,10 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable()) // Настройка CSRF в соответствии с вашими требованиями
+            .csrf(csrf -> csrf.disable()) // Настройка CSRF
             .authorizeRequests(authz -> authz
                 .requestMatchers("/register", "/login").permitAll() // Разрешаем доступ без аутентификации
-                .anyRequest().authenticated() // Все остальные запросы требуют аутентификации
+                .anyRequest().authenticated() 
             )
             .formLogin(form -> form
                 .loginPage("/login")
